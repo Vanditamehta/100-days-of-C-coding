@@ -11,7 +11,8 @@ Operation failed
 #include <stdio.h>
 enum Status { SUCCESS, FAILURE, TIMEOUT };
 
-int main() {
+int main() 
+{
     enum Status s;
 
     printf("Enter status (0 = SUCCESS, 1 = FAILURE, 2 = TIMEOUT): ");
@@ -30,6 +31,5 @@ int main() {
             printf("Invalid status\n");
             break;
     }
-
-    return 0;
+  return 0;
 }
