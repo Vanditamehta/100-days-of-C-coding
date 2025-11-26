@@ -10,37 +10,32 @@ I evol gnidoc
 */
 #include <stdio.h>
 #include <string.h>
-#define MAX 200
-void reverseWord(char str[], int start, int end) 
+
+void reverse(char word[], int start, int end) 
 {
     while (start < end) 
     {
-        char temp = str[start];
-        str[start] = str[end];
-        str[end] = temp;
+        char temp = word[start];
+        word[start] = word[end];
+        word[end] = temp;
         start++;
         end--;
     }
 }
-int main() 
-{
-    char sentence[MAX];
-    printf("Enter a sentence: ");
-    fgets(sentence, sizeof(sentence), stdin);
-    sentence[strcspn(sentence, "\n")] = 0; // Remove newline character
-    int start = 0;
-    for (int i = 0; ; i++) 
-    {
-        if (sentence[i] == ' ' || sentence[i] == '\0') 
-        {
-            reverseWord(sentence, start, i - 1);
-            start = i + 1;
+int main() {
+    char str[200];
+    int i = 0, start = 0;
+    printf("Enter a sentence:\n ");
+    fgets(str, sizeof(str), stdin);
+
+    while (str[i] != '\0') {
+        if (str[i] == ' ' || str[i] == '\n') {
+            reverse(str, start, i - 1);  
+            start = i + 1;               
         }
-        if (sentence[i] == '\0') 
-        {
-            break;
-        }
+        i++;
     }
-    printf("Sentence with reversed words: %s\n", sentence);
+    printf("%s", str);
+
     return 0;
 }
