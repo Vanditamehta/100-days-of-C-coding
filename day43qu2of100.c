@@ -26,8 +26,10 @@ int main()
         j++;
     }
     j--; 
-    while (i < j) {
-        if (s[i] != s[j]) {
+    while (i < j) 
+    {
+        if (s[i] != s[j]) 
+        {
             printf("Not palindrome\n");
             return 0;
         }
